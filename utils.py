@@ -9,6 +9,7 @@ import re
 from datetime import datetime
 from database.users_chats_db import db
 from shortzy import Shortzy
+import requests
 
 imdb = Cinemagoer() 
 
@@ -41,6 +42,20 @@ async def is_subscribed(bot, query, channel):
         except Exception as e:
             pass
     return btn
+
+
+def upload_to_gofile(file_path):
+    url = "https://store1.gofile.io/uploadFile"
+    
+    with open(file_path, "rb") as file:
+        files = {"file": file}
+        response = requests.post(url, files=files)
+
+    if response.status_code == 200 and response.json()["status"] == "ok":
+        return response.json()["data"]["downloadPage"]
+    else:
+        return None
+
 
 async def get_poster(query, bulk=False, id=False, file=None):
     if not id:

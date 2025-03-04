@@ -9,6 +9,6 @@ cinemagoer
 shortzy
 aiohttp
 aiofiles
-telegraph
 speedtest-cli
 uvloop
+requests

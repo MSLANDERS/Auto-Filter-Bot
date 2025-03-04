@@ -38,7 +38,7 @@
 • /index_channels - to check how many index channel id added.
 • /stats - to get bot status.
 • /ping - view bot's ping (latency)
-• /telegraph - generate telegraph image link
+• /gofile - upload file to gofile.io
 • /settings - to change group settings as your wish.
 • /set_template - to set custom imdb template.
 • /set_caption - to set custom bot files caption.
