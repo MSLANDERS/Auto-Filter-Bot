@@ -3,11 +3,11 @@ from struct import pack
 import re
 import base64
 from pyrogram.file_id import FileId
-from pymongo.errors import DuplicateKeyError
+from pymongo.errors import DuplicateKeyError, OperationFailure 
 from umongo import Instance, Document, fields
 from motor.motor_asyncio import AsyncIOMotorClient
 from marshmallow.exceptions import ValidationError
-from info import DATABASE_URL, DATABASE_NAME, COLLECTION_NAME, MAX_BTN
+from info import DATABASE_URL, SECOND_DATABASE_URL, DATABASE_NAME, COLLECTION_NAME, MAX_BTN
 
 client = AsyncIOMotorClient(DATABASE_URL)
 db = client[DATABASE_NAME]
@@ -23,6 +23,29 @@ class Media(Document):
     class Meta:
         indexes = ('$file_name', )
         collection_name = COLLECTION_NAME
+
+
+
+#second db
+if SECOND_DATABASE_URL:
+    second_client = AsyncIOMotorClient(SECOND_DATABASE_URL)
+    second_db = second_client[DATABASE_NAME]
+    second_instance = Instance.from_db(second_db)
+
+    @second_instance.register
+    class SecondMedia(Document):
+
+        file_id = fields.StrField(attribute='_id')
+        file_name = fields.StrField(required=True)
+        file_size = fields.IntField(required=True)
+        caption = fields.StrField(allow_none=True)
+
+        class Meta:
+             indexes = ('$file_name', )
+             collection_name = COLLECTION_NAME
+
+
+
 
 async def save_file(media):
     """Save file in database"""
@@ -47,6 +70,21 @@ async def save_file(media):
         except DuplicateKeyError:      
             print(f'Already Saved - {file_name}')
             return 'dup'
+        except OperationFailure: #if 1st db is full
+            if SECOND_DATABASE_URL:
+                file = SecondMedia(
+                    file_id=file_id,
+                    file_name=file_name,
+                    file_size=media.file_size,
+                    caption=file_caption
+                    )
+                try:
+                    await file.commit()
+                    print(f'Saved to 2nd db - {file_name}')
+                    return 'suc'
+                except DuplicateKeyError:
+                    print(f'Already Saved in 2nd db - {file_name}')
+                    return 'dup'
         else:
             print(f'Saved - {file_name}')
             return 'suc'
@@ -66,13 +104,18 @@ async def get_search_results(query, max_results=MAX_BTN, offset=0, lang=None):
         regex = query
 
     filter = {'file_name': regex}
-    cursor = Media.find(filter)
 
-    # Sort by recent
-    cursor.sort('$natural', -1)
+    cursor = Media.find(filter)
+    results = [doc async for doc in cursor]
+
+    if SECOND_DATABASE_URL:
+        cursor2 = SecondMedia.find(filter)
+        results.extend([doc async for doc in cursor2])
+
+
 
     if lang:
-        lang_files = [file async for file in cursor if lang in file.file_name.lower()]
+        lang_files = [file for file in results if lang in file.file_name.lower()]
         files = lang_files[offset:][:max_results]
         total_results = len(lang_files)
         next_offset = offset + max_results
@@ -80,15 +123,14 @@ async def get_search_results(query, max_results=MAX_BTN, offset=0, lang=None):
             next_offset = ''
         return files, next_offset, total_results
         
-    # Slice files according to offset and max results
-    cursor.skip(offset).limit(max_results)
-    # Get list of files
-    files = await cursor.to_list(length=max_results)
-    total_results = await Media.count_documents(filter)
+
+    total_results = len(results)
+    files = results[offset:][:max_results]
     next_offset = offset + max_results
     if next_offset >= total_results:
-        next_offset = ''       
+        next_offset = ''   
     return files, next_offset, total_results
+    
     
 async def delete_files(query):
     query = query.strip()

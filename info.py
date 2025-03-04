@@ -72,6 +72,9 @@ DATABASE_URL = environ.get('DATABASE_URL', "")
 if len(DATABASE_URL) == 0:
     print('Error - DATABASE_URL is missing, exiting now')
     exit()
+SECOND_DATABASE_URL = environ.get('SECOND_DATABASE_URL', "")
+if len(SECOND_DATABASE_URL) == 0:
+    print('Info - SECOND_DATABASE_URL is empty')
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Files')
 
