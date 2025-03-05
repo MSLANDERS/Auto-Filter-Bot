@@ -53,7 +53,7 @@ async def start(client, message):
             InlineKeyboardButton('Sᴇᴀʀᴄʜ 🔎', switch_inline_query_current_chat=''),
             InlineKeyboardButton('Hᴇʟᴘ 🚨', callback_data='help'),
         ],[
-            InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ.💲', callback_data='earn'),
+            InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ💲', callback_data='earn'),
             InlineKeyboardButton('Aʙᴏᴜᴛ 👨‍💻', callback_data='about')
         ],[
             InlineKeyboardButton('✭ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✭', url="https://t.me/mslanders")
