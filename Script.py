@@ -92,13 +92,11 @@ I can't find the {} in my database! 🥲
 🗣 Requested by: {message.from_user.mention}
 ©️ Powered by: <b>{message.chat.title}</b>"""
 
-    FILE_CAPTION = """<b>{caption}</b>
-
-<b><blockquote>🚫 Tʜɪs Fɪʟᴇ Wɪʟʟ Bᴇ Dᴇʟᴇᴛᴇᴅ Iɴ Tʜᴇ Nᴇxᴛ 10 Mɪɴᴜᴛᴇs 🚫</blockquote></b>"""
+    FILE_CAPTION = """<b>{file_name}</b>"""
 
     WELCOME_TEXT = """👋 Hello {mention}, Welcome to {title} group! 💞"""
 
-    HELP_TXT = """<b>Note - ✤ Wᴇ Hᴀᴠᴇ Dᴇᴠɪᴅᴇᴅ Bᴏᴛ Cᴏᴍᴍᴀɴᴅꜱ Fᴏʀ Gʀᴏᴜᴘ Oᴡɴᴇʀꜱ Aɴᴅ Bᴏᴛ Aꜱᴇʀꜱ.\n✤ Tʀʏ Eᴀᴄʜ Cᴏᴍᴍᴀɴᴅ Wɪᴛʜᴏᴜᴛ Aɴʏ Aʀɢᴜᴍᴇɴᴛ Tᴏ Sᴇᴇ Mᴏʀᴇ Dᴇᴛᴀɪʟs. 👨‍💻</b>"""
+    HELP_TXT = """<b>✤ Wᴇ Hᴀᴠᴇ Dᴇᴠɪᴅᴇᴅ Bᴏᴛ Cᴏᴍᴍᴀɴᴅꜱ Fᴏʀ Usᴇʀs Aɴᴅ Bᴏᴛ Oᴡɴᴇʀs.\n✤ Tʀʏ Eᴀᴄʜ Cᴏᴍᴍᴀɴᴅ Wɪᴛʜᴏᴜᴛ Aɴʏ Aʀɢᴜᴍᴇɴᴛ Tᴏ Sᴇᴇ Mᴏʀᴇ Dᴇᴛᴀɪʟs. 👨‍💻</b>"""
     
     ADMIN_COMMAND_TXT = """<b>Here is bot admin commands 👇
 
