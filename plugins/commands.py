@@ -49,14 +49,11 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton("+ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +", url=f'http://t.me/{temp.U_NAME}?startgroup=start')
         ],[
-            InlineKeyboardButton('ℹ️ ᴜᴘᴅᴀᴛᴇs', url=UPDATES_LINK),
-            InlineKeyboardButton('🧑‍💻 sᴜᴘᴘᴏʀᴛ', url=SUPPORT_LINK)
+            InlineKeyboardButton('sᴇᴀʀᴄʜ 🔎', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('ʜᴇʟᴘ 🚨', callback_data='help'),
         ],[
-            InlineKeyboardButton('👨‍🚒 ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton('🔎 sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('📚 ᴀʙᴏᴜᴛ', callback_data='about')
-        ],[
-            InlineKeyboardButton('💰 ᴇᴀʀɴ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏɴᴇʏ ʙʏ ʙᴏᴛ 💰', callback_data='earn')
+            InlineKeyboardButton('Eᴀʀɴ ᴍᴏɴᴇʏ..💲', callback_data='earn'),
+            InlineKeyboardButton('ᴀʙᴏᴜᴛ 👨‍💻', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -80,7 +77,7 @@ async def start(client, message):
             reply_markup = None
         else:
             btn = [[
-                InlineKeyboardButton("📌 Get File 📌", url=f'https://t.me/{temp.U_NAME}?start={verify_status["link"]}')
+                InlineKeyboardButton("📬 𝗚𝗘𝗧 𝗙𝗜𝗟𝗘", url=f'https://t.me/{temp.U_NAME}?start={verify_status["link"]}')
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
         await message.reply(f"✅ You successfully verified until: {get_readable_time(VERIFY_EXPIRE)}", reply_markup=reply_markup, protect_content=True)
@@ -92,9 +89,9 @@ async def start(client, message):
         await update_verify_status(message.from_user.id, verify_token=token, link="" if mc == 'inline_verify' else mc)
         link = await get_shortlink(SHORTLINK_URL, SHORTLINK_API, f'https://t.me/{temp.U_NAME}?start=verify_{token}')
         btn = [[
-            InlineKeyboardButton("🧿 Verify 🧿", url=link)
+            InlineKeyboardButton("✨ 𝗩𝗘𝗥𝗜𝗙𝗬 ✨", url=link)
         ],[
-            InlineKeyboardButton('🗳 Tutorial 🗳', url=VERIFY_TUTORIAL)
+            InlineKeyboardButton('🗳 𝗧𝗨𝗧𝗢𝗥𝗜𝗔𝗟 🗳', url=VERIFY_TUTORIAL)
         ]]
         await message.reply("You not verified today! Kindly verify now. 🔐", reply_markup=InlineKeyboardMarkup(btn), protect_content=True)
         return
@@ -176,7 +173,7 @@ async def start(client, message):
     if type_ != 'shortlink' and settings['shortlink']:
         link = await get_shortlink(settings['url'], settings['api'], f"https://t.me/{temp.U_NAME}?start=shortlink_{grp_id}_{file_id}")
         btn = [[
-            InlineKeyboardButton("♻️ Get File ♻️", url=link)
+            InlineKeyboardButton("📬 𝗚𝗘𝗧 𝗙𝗜𝗟𝗘", url=link)
         ],[
             InlineKeyboardButton("📍 ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ 📍", url=settings['tutorial'])
         ]]
