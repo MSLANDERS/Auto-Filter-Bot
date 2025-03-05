@@ -9,9 +9,9 @@ class script(object):
 ★ Language: <a href=https://www.python.org>Python</a>
 ★ Library: <a href=https://pyrogram.org>Pyrogram</a>"""
 
-    MY_OWNER_TXT = """★ Name: AMANI
-★ Username: @MSLANDERSTALK_BOT
-★ Country: KYA KREGA JANKE"""
+    MY_OWNER_TXT = """★ Name : AMANI
+★ Username : @MSLANDERSTALK_BOT
+★ Country : KYA KREGA JANKE"""
 
     STATUS_TXT = """🗂 Total Files: <code>{}</code>
 👤 Total Users: <code>{}</code>
@@ -122,5 +122,3 @@ I can't find the <b>{}</b> in my database! 🥲
 /set_fsub - to set force subscribe channels
 /remove_fsub - to remove all force subscribe channel</b>"""
     
-    SOURCE_TXT = """<b>ᴛʜɪꜱ ɪꜱ ɴᴏᴛ ᴀ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ ᴍᴀᴋᴇ ᴛʜɪꜱ ʙᴏᴛ ᴀᴅᴍɪɴ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴇɴᴊᴏʏ 💰</b>"""
-
