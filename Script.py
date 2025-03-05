@@ -92,9 +92,9 @@ I can't find the {} in my database! 🥲
 🗣 Requested by: {message.from_user.mention}
 ©️ Powered by: <b>{message.chat.title}</b>"""
 
-    FILE_CAPTION = """<b>{caption}
+    FILE_CAPTION = """<b>{file_name}</b>
 
-<blockquote>🚫 Tʜɪs Fɪʟᴇ Wɪʟʟ Bᴇ Dᴇʟᴇᴛᴇᴅ Iɴ Tʜᴇ Nᴇxᴛ 10 Mɪɴᴜᴛᴇs 🚫</blockquote></b>"""
+<b><blockquote>🚫 Tʜɪs Fɪʟᴇ Wɪʟʟ Bᴇ Dᴇʟᴇᴛᴇᴅ Iɴ Tʜᴇ Nᴇxᴛ 10 Mɪɴᴜᴛᴇs 🚫</blockquote></b>"""
 
     WELCOME_TEXT = """👋 Hello {mention}, Welcome to {title} group! 💞"""
 
