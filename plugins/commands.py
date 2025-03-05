@@ -30,8 +30,9 @@ async def start(client, message):
         wish = get_wish()
         user = message.from_user.mention if message.from_user else "Dear"
         btn = [[
-            InlineKeyboardButton('⚡️ ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ ⚡️', url=UPDATES_LINK),
-            InlineKeyboardButton('💡 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💡', url=SUPPORT_LINK)
+            InlineKeyboardButton('⚡️ Bᴀᴄᴋᴜᴘ Cʜᴀɴɴᴇʟ ⚡️', url=UPDATES_LINK)
+        ],[
+            InlineKeyboardButton('💡 Cᴏɴᴛᴀᴄᴛ Oᴡɴᴇʀ 💡', url="https://t.me/MslandersTalk_bot")
         ]]
         await message.reply(text=f"<b>ʜᴇʏ {user}, <i>{wish}</i>\nʜᴏᴡ ᴄᴀɴ ɪ ʜᴇʟᴘ ʏᴏᴜ??</b>", reply_markup=InlineKeyboardMarkup(btn))
         return 
@@ -47,13 +48,15 @@ async def start(client, message):
 
     if (len(message.command) != 2) or (len(message.command) == 2 and message.command[1] == 'start'):
         buttons = [[
-            InlineKeyboardButton("+ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +", url=f'http://t.me/{temp.U_NAME}?startgroup=start')
+            InlineKeyboardButton("➕ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ➕", url=f'http://t.me/{temp.U_NAME}?startgroup=start')
         ],[
-            InlineKeyboardButton('sᴇᴀʀᴄʜ 🔎', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('ʜᴇʟᴘ 🚨', callback_data='help'),
+            InlineKeyboardButton('Sᴇᴀʀᴄʜ 🔎', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('Hᴇʟᴘ 🚨', callback_data='help'),
         ],[
-            InlineKeyboardButton('Eᴀʀɴ ᴍᴏɴᴇʏ..💲', callback_data='earn'),
-            InlineKeyboardButton('ᴀʙᴏᴜᴛ 👨‍💻', callback_data='about')
+            InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ.💲', callback_data='earn'),
+            InlineKeyboardButton('Aʙᴏᴜᴛ 👨‍💻', callback_data='about')
+        ],[
+            InlineKeyboardButton('✭ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✭', url="https://t.me/mslanders")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -131,17 +134,11 @@ async def start(client, message):
                 btn = [[
                     InlineKeyboardButton("✛ ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ ✛", callback_data=f"stream#{file.file_id}")
                 ],[
-                    InlineKeyboardButton('⚡️ ᴜᴘᴅᴀᴛᴇs', url=UPDATES_LINK),
-                    InlineKeyboardButton('💡 ꜱᴜᴘᴘᴏʀᴛ', url=SUPPORT_LINK)
-                ],[
-                    InlineKeyboardButton('⁉️ ᴄʟᴏsᴇ ⁉️', callback_data='close_data')
+                    InlineKeyboardButton('📢  Bᴀᴄᴋᴜᴘ Cʜᴀɴɴᴇʟ', url=UPDATES_LINK)
                 ]]
             else:
                 btn = [[
-                    InlineKeyboardButton('⚡️ ᴜᴘᴅᴀᴛᴇs', url=UPDATES_LINK),
-                    InlineKeyboardButton('💡 ꜱᴜᴘᴘᴏʀᴛ', url=SUPPORT_LINK)
-                ],[
-                    InlineKeyboardButton('⁉️ ᴄʟᴏsᴇ ⁉️', callback_data='close_data')
+                    InlineKeyboardButton('📢  Bᴀᴄᴋᴜᴘ Cʜᴀɴɴᴇʟ', url=UPDATES_LINK)
                 ]]
 
             msg = await client.send_cached_media(
@@ -190,17 +187,11 @@ async def start(client, message):
         btn = [[
             InlineKeyboardButton("✛ ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ ✛", callback_data=f"stream#{file_id}")
         ],[
-            InlineKeyboardButton('⚡️ ᴜᴘᴅᴀᴛᴇs', url=UPDATES_LINK),
-            InlineKeyboardButton('💡 ꜱᴜᴘᴘᴏʀᴛ', url=SUPPORT_LINK)
-        ],[
-            InlineKeyboardButton('⁉️ ᴄʟᴏsᴇ ⁉️', callback_data='close_data')
+            InlineKeyboardButton('📢  Bᴀᴄᴋᴜᴘ Cʜᴀɴɴᴇʟ', url=UPDATES_LINK)
         ]]
     else:
         btn = [[
-            InlineKeyboardButton('⚡️ ᴜᴘᴅᴀᴛᴇs', url=UPDATES_LINK),
-            InlineKeyboardButton('💡 ꜱᴜᴘᴘᴏʀᴛ', url=SUPPORT_LINK)
-        ],[
-            InlineKeyboardButton('⁉️ ᴄʟᴏsᴇ ⁉️', callback_data='close_data')
+            InlineKeyboardButton('📢  Bᴀᴄᴋᴜᴘ Cʜᴀɴɴᴇʟ', url=UPDATES_LINK)
         ]]
     vp = await client.send_cached_media(
         chat_id=message.from_user.id,
