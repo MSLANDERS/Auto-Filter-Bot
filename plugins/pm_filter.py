@@ -553,7 +553,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton("+ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +", url=f'http://t.me/{temp.U_NAME}?startgroup=start')
+            InlineKeyboardButton("➕ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ➕", url=f'http://t.me/{temp.U_NAME}?startgroup=start')
         ],[
             InlineKeyboardButton('Sᴇᴀʀᴄʜ 🔎', switch_inline_query_current_chat=''),
             InlineKeyboardButton('Hᴇʟᴘ 🚨', callback_data='help')
@@ -561,7 +561,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ💲', callback_data='earn'),
             InlineKeyboardButton('Aʙᴏᴜᴛ 👨‍💻', callback_data='about')
         ],[
-            InlineKeyboardButton('✭ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✭', url='https://t.me/mslanders')
+            InlineKeyboardButton('✭ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✭', url="https://t.me/mslanders")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -619,7 +619,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "earn":
         buttons = [[
-            InlineKeyboardButton('‼️ ʜᴏᴡ ᴛᴏ ᴄᴏɴɴᴇᴄᴛ sʜᴏʀᴛɴᴇʀ ‼️', callback_data='howshort')
+            InlineKeyboardButton('‼️ Hᴏᴡ Tᴏ Cᴏɴɴᴇᴄᴛ Sʜᴏʀᴛɴᴇʀ ‼️', callback_data='howshort')
         ],[
             InlineKeyboardButton('≼ ʙᴀᴄᴋ', callback_data='start')
         ]]
@@ -632,7 +632,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "howshort":
         buttons = [[
-            InlineKeyboardButton('≼ ʙᴀᴄᴋ', callback_data='earn')
+            InlineKeyboardButton('≼ Bᴀᴄᴋ', callback_data='earn')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -682,7 +682,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('☸️ Bᴀᴄᴋᴜᴘ', url=UPDATES_LINK)
         ],[
             InlineKeyboardButton('🆘 Sᴜᴘᴘᴏʀᴛ', url=SUPPORT_LINK),
-            InlineKeyboardButton('🗣📢 Mᴏᴠɪᴇ Nᴏᴛɪғɪᴄᴀᴛɪᴏɴ ', url="https://t.me/MOVIEUPDATE_CHANNEL"),
+            InlineKeyboardButton('📢 Mᴏᴠɪᴇ Nᴏᴛɪғɪᴄᴀᴛɪᴏɴ ', url="https://t.me/MOVIEUPDATE_CHANNEL"),
         ],[
             InlineKeyboardButton('⇍ Bᴀᴄᴋ ⇏', callback_data='start'),
             InlineKeyboardButton('➤ Cᴏɴᴛᴀᴄᴛ ', url="https://t.me/mslanderstalk_bot")
