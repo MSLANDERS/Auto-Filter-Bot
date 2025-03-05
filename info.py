@@ -35,7 +35,7 @@ if len(BOT_TOKEN) == 0:
 PORT = int(environ.get('PORT', '80'))
 
 # Bot pics
-PICS = (environ.get('PICS', 'https://telegra.ph/file/58fef5cb458d5b29b0186.jpg https://telegra.ph/file/f0aa4f433132769f8970c.jpg https://telegra.ph/file/f515fbc2084592eca60a5.jpg https://telegra.ph/file/20dbdcffaa89bd3d09a74.jpg https://telegra.ph/file/6045ba953af4def846238.jpg')).split()
+PICS = (environ.get('PICS', 'https://i.imghippo.com/files/abr7566ZY.jpg https://i.imghippo.com/files/Pql9212lZM.jpg https://i.imghippo.com/files/Yhj4729tI.jpg https://i.imghippo.com/files/dCi7708Og.jpg https://i.imghippo.com/files/EB2006rx.jpg')).split()
 
 # Bot Admins
 ADMINS = environ.get('ADMINS', '6317211079')
@@ -55,7 +55,7 @@ if len(LOG_CHANNEL) == 0:
     exit()
 else:
     LOG_CHANNEL = int(LOG_CHANNEL)
-FORCE_SUB_CHANNELS = [int(fsub_channels) if fsub_channels.startswith("-") else fsub_channels for fsub_channels in environ.get('FORCE_SUB_CHANNELS', '0').split()]
+FORCE_SUB_CHANNELS = [int(fsub_channels) if fsub_channels.startswith("-") else fsub_channels for fsub_channels in environ.get('FORCE_SUB_CHANNELS', '-1002178835257').split()]
 if len(FORCE_SUB_CHANNELS) == 0:
     print('Info - FORCE_SUB_CHANNELS is empty')
     
@@ -122,7 +122,7 @@ if len(BIN_CHANNEL) == 0:
     exit()
 else:
     BIN_CHANNEL = int(BIN_CHANNEL)
-URL = environ.get("URL", "0")
+URL = environ.get("URL", "https://t.me/+TKjk4k9HozYzZGY9")
 if len(URL) == 0:
     print('Error - URL is missing, exiting now')
     exit()
@@ -138,5 +138,5 @@ else:
 
 #start command reactions and sticker
 REACTIONS = [reactions for reactions in environ.get('REACTIONS', '🤝 😇 🤗 😍 👍 🎅 😐 🥰 🤩 😱 🤣 😘 👏 😛 😈 🎉 ⚡️ 🫡 🤓 😎 🏆 🔥 🤭 🌚 🆒 👻 😁').split()]  # Multiple reactions can be used separated by space
-STICKERS = [sticker for sticker in environ.get('STICKERS', 'CAACAgIAAxkBAAEN4ctnu1NdZUe21tiqF1CjLCZW8rJ28QACmQwAAj9UAUrPkwx5a8EilDYE CAACAgIAAxkBAAEN1pBntL9sz1tuP_qo0bCdLj_xQa28ngACxgEAAhZCawpKI9T0ydt5RzYE').split()]  # Multiple sticker can be used separated by space, use @idstickerbot for get sticker id
+STICKERS = [sticker for sticker in environ.get('STICKERS', 'CAACAgUAAxkBAAIRPmfINlRgeKAp4cEjx6FpEqZNEqc6AALzFAACGX9AVmQnrmlvRTBwHgQ CAACAgUAAxkBAAIRQGfINlWllmggXt-Y2G_3OQbc9E8vAAJAFQACwfBAVoG6z7eqbTYZHgQ CAACAgUAAxkBAAIRP2fINlTz64LFh3u9tPD9AAFWzeffpgACDBYAAoyiSFaOfvXhKs_cfh4E').split()]  # Multiple sticker can be used separated by space, use @idstickerbot for get sticker id
 
